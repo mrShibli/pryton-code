@@ -834,8 +834,8 @@ class UserController extends Controller
     $messages = array(
       "letters" => __('validation.letters'),
       "email.required_if" => __('validation.required'),
-      "birthdate.before" => __('general.error_adult'),
-      "birthdate.required_if" => __('validation.required'),
+      // "birthdate.before" => __('general.error_adult'),
+      // "birthdate" => __('validation.required'),
       "story.required_if" => __('validation.required'),
     );
 
@@ -877,7 +877,7 @@ class UserController extends Controller
       'birthdate' => 'before:' . Carbon::now()->subYears(18),
       'review_img' => 'image|mimes:jpeg,png,jpg,gif'
     ], $messages);
-
+    // dd($messages);
     if ($validator->fails()) {
       return response()->json([
         'success' => false,
@@ -928,8 +928,20 @@ class UserController extends Controller
     // $user->threads         = trim($this->request->threads) ?? '';
     $user->plan            = 'user_' . auth()->id();
     $user->gender          = $this->request->gender;
-    $user->birthdate       = auth()->user()->birthdate_changed == 'no' ? Carbon::createFromFormat(Helper::formatDatepicker(), $this->request->birthdate)->format('m/d/Y') : auth()->user()->birthdate;
-    $user->birthdate_changed = 'yes';
+
+      $birthdateChanged = auth()->user()->birthdate_changed == 'no';
+
+      if ($birthdateChanged && !empty($this->request->birthdate)) {
+          $user->birthdate = Carbon::createFromFormat(Helper::formatDatepicker(), $this->request->birthdate)->format('m/d/Y');
+      } elseif (!$birthdateChanged && !empty(auth()->user()->birthdate)) {
+          // Use auth()->user()->birthdate when $birthdateChanged is 'yes'
+          $user->birthdate = auth()->user()->birthdate;
+      } else {
+          // Handle the case when both $this->request->birthdate and auth()->user()->birthdate are empty
+          $user->birthdate = null; // or set it to a default value as needed
+      }
+    // $user->birthdate       = auth()->user()->birthdate_changed == 'no' ? Carbon::createFromFormat(Helper::formatDatepicker(), $this->request->birthdate)->format('m/d/Y') : auth()->user()->birthdate;
+    $user->birthdate_changed = 'no';
     $user->language      = $this->request->language;
     $user->hide_name     = $this->request->hide_name ?? 'no';
 
