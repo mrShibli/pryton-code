@@ -1034,7 +1034,7 @@ class UserController extends Controller
             'status' => $this->request->status_one ?? 1,
             'title' => $this->request->one_title,
             'description' => $this->request->one_desc,
-            'img' => $filename ?? null,
+            'img' => $filename ?? '',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
           ]
@@ -1064,7 +1064,7 @@ class UserController extends Controller
             'status' => $this->request->status_two ?? 1,
             'title' => $this->request->two_title,
             'description' => $this->request->two_dsc,
-            'img' => $filename ?? null,
+            'img' => $filename ?? '',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
 
@@ -1101,7 +1101,7 @@ class UserController extends Controller
             'status' => $this->request->status_three ?? 1,
             'title' => $this->request->title_three,
             'description' => $this->request->desc_three,
-            'img' => $filename ?? null,
+            'img' => $filename ?? '',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(), // Use the filename if it exists, otherwise default to null
             // Add other fields as needed

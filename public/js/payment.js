@@ -41,7 +41,7 @@
         element.find('i').addClass('spinner-border spinner-border-sm align-middle mr-1');
 
 				(function(){
-					 $("#formSubscription").ajaxForm({
+					$("#formSubscription").ajaxForm({
 					 dataType : 'json',
 					 success:  function(result) {
 

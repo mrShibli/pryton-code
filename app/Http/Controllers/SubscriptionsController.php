@@ -28,6 +28,8 @@ class SubscriptionsController extends Controller
    */
   public function buy()
   {
+
+    
     // Find the User
     $user = User::whereVerifiedId('yes')
       ->whereId($this->request->id)
@@ -35,9 +37,8 @@ class SubscriptionsController extends Controller
       ->firstOrFail();
 
     // Check if Plan exists
-    $plan = $user->plans()
-      ->whereInterval($this->request->interval)
-      ->firstOrFail();
+    $plan = Plans::where('id', $this->request->plan_id)
+      ->first();
 
     if (!$plan->status) {
       return response()->json([
@@ -188,9 +189,8 @@ class SubscriptionsController extends Controller
       ->firstOrFail();
 
     // Check if Plan exists
-    $plan = $creator->plans()
-      ->whereInterval($this->request->interval)
-      ->firstOrFail();
+    $plan = Plans::where('id', $this->request->plan_id)
+      ->first();
 
     $amount = $plan->price;
 
