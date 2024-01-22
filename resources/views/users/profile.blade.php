@@ -254,7 +254,7 @@ body{width:100%;max-width:100%;margin:0 auto;padding:0;}
         <input type="file" name="image" id="uploadCover" accept="image/*" class="visibility-hidden">
     </form>
 
-    <div class="flex justify-between wraper-cover-upload">
+    <div class="flex justify-between wraper-cover-upload" style="z-index: 10">
         <button class="btn btn-cover-upload p-lg-6 px-3" id="coverFile" onclick="$('#uploadCover').trigger('click');">
             <i class="fa fa-camera mr-lg-1"></i> <span class="d-none d-lg-inline">{{__('general.change_cover')}}</span>
         </button>
@@ -1114,7 +1114,7 @@ body{width:100%;max-width:100%;margin:0 auto;padding:0;}
                 {{__('users.about_me')}} <i class="fas fa-chevron-down ml-2"></i>
             </button>
 
-            <div class="sticky-top navbar-collapse collapse d-lg-block" id="navbarUserHome">
+            <div class="sticky-top navbar-collapse collapse d-lg-block" id="navbarUserHome" style="position: unset">
                 <div class="card mb-3 rounded-large shadow-large">
                     <div class="card-body">
                         <h6 class="card-title">{{ __('users.about_me') }}</h6>
@@ -1146,13 +1146,13 @@ body{width:100%;max-width:100%;margin:0 auto;padding:0;}
                                 Helper::formatDate($user->date) }}
                             </small>
 
-                            @if ($user->show_my_birthdate == 'yes')
+                            {{-- @if ($user->show_my_birthdate == 'no') --}}
                             <small class="btn-block m-0 mb-1">
                                 <i class="far fa-calendar-alt mr-1"></i> {{ __('general.birthdate') }} {{
                                 Helper::formatDate($user->birthdate) }} ({{ \Carbon\Carbon::parse($user->birthdate)->age
                                 }} {{ __('general.years') }})
                             </small>
-                            @endif
+                            {{-- @endif --}}
 
 
                             @if ($user->verified_id == 'yes')

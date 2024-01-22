@@ -45,7 +45,7 @@
 		$nth = 0; // nth foreach nth-child(3n-1)
 		
 	@endphp
-	<div class="card mb-3 card-updates views rounded-large shadow-large card-border-0 @if ($response->status == 'pending') post-pending @endif @if ($response->fixed_post == '1' && request()->path() == $response->creator->username || auth()->check() && $response->fixed_post == '1' && $response->creator->id == auth()->user()->id) pinned-post @endif" data="{{$response->id}}">
+	<div class="card mb-3 card-updates views rounded-large shadow-large card-border-0 @if ($response->status == 'pending') post-pending @endif @if ($response->fixed_post == '1' && request()->path() == $response->creator->username || auth()->check() && $response->fixed_post == '1' && $response->creator->id == auth()->user()->id) pinned-post @endif" data="{{$response->id}}" style="border: 1px solid #a3a3a3;">
 	<div class="card-body">
 		<div class="pinned_post text-muted small w-100 mb-2 {{ $response->fixed_post == '1' && request()->path() == $response->creator->username || auth()->check() && $response->fixed_post == '1' && $response->creator->id == auth()->user()->id ? 'pinned-current' : 'display-none' }}">
 			<i class="bi bi-pin mr-2"></i> {{ __('general.pinned_post') }}
@@ -549,9 +549,9 @@
 				$buttonBookmark = null;
 			}
 			@endphp
-
+			{{-- @dd($likeActive) --}}
 			<a class="pulse-btn btnLike @if ($likeActive)active @endif {{$buttonLike}} text-muted mr-14px" href="javascript:void(0);" @guest data-toggle="modal" data-target="#loginFormModal" @endguest @auth data-id="{{$response->id}}" @endauth>
-				<i class="@if($likeActive)fas @else far @endif fa-heart"></i>
+				<i class="@if($likeActive)fas @else far @endif fa-heart" style="@if($likeActive) color: red; @endif"></i>
 			</a>
 
 			<span class="@auth @if (auth()->user()->checkRestriction($response->creator->id)) buttonDisabled @else text-muted @endif @else text-muted @endauth disabled mr-14px @auth @if (! isset($inPostDetail) && $buttonLike) pulse-btn toggleComments @endif @endauth">
@@ -643,7 +643,9 @@
 			</a>
 		</h4>
 
-		<div class="w-100 mb-3 containerLikeComment">
+		<div class="w-100 mb-3 containerLikeComment" style="background-color: #f4f3f3;
+		padding: 14px;
+		border-radius: 13px;">
 			<span class="countLikes text-muted dot-item">
 				{{ trans_choice('general.like_likes', $totalLikes, ['total' => number_format($totalLikes)]) }}
 			</span> 
