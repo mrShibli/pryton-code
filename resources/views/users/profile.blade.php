@@ -272,29 +272,30 @@ body{width:100%;max-width:100%;margin:0 auto;padding:0;}
 <div class="container">
     <div class=" d-md-block position-relative" style="">
         
-        @if($user->review_img )
+        @if($user->review_img)
             
         <div class="d-none d-lg-block position-absolute" style="height:200px; width:300px; top: 40px; left: 0px"><img height="200px" width="300px" src="{{ asset('public/img/review/' . $user->review_img) }}" alt="" srcset=""></div>
         @else
-            <div class="d-none d-lg-block position-absolute" style="height:200px; width:300px; top: 40px; left: 0px"><img height="200px" width="300px" src="{{ asset('public/img/review/' . $user->review_img) }}" alt="" srcset=""></div>
+            <div class="d-none d-lg-block position-absolute" style="height:200px; width:300px; top: 40px; left: 0px"><img height="200px" width="300px" src="{{ asset('public/notes.jpg') }}" alt="" srcset=""></div>
         @endif
         
         
         {{-- <div class=""></div> --}}
-        <div class="d-none d-lg-block d-md-block position-absolute" style="top: 70px; right: 0px;">
+        <div class="d-none d-lg-block position-absolute" style="top: 70px; right: 0px;">
                 <!-- Slideshow container -->
 
                 {{-- @if($user->post) --}}
             
         
-                <div class="pageWrap d-flex flex-row align-items-center" style="height:100px; width:300px;">
-                        <div>
-                            {{-- <img src="{{ asset('tv.jpg') }}" alt="" srcset=""> --}}
-                        </div>
+                <div class="pageWrap d-flex flex-row align-items-center" style="height:100px; width:300px">
+                    <div>
+                        {{-- <img src="{{ asset('tv.jpg') }}" alt="" srcset=""> --}}
+                    </div>
+
                     <div class="buttonwrapper">
                     {{-- <a href="" class="prev"><i class="fa-solid fa-angle-left"></i></a> --}}
                     </div>
-                    <div class="sliderOute" style="background-image: url({{ asset('TV_BG.webp') }});     
+                    <div class="sliderOute" style="background-image: url('{{ asset('public/TV_BG.webp') }}');     
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -983,9 +984,66 @@ body{width:100%;max-width:100%;margin:0 auto;padding:0;}
         @endif
 
 
+            <!-- user banner -->
 
+            <div class="d-block d-md-flex d-lg-none">
+                    
+                <div class="mx-auto d-sm-block d-lg-none">
+                    @if($user->review_img)
+                        <div class="d-block mx-auto" style="height:200px; width:300px; top: 40px; left: 0px"><img height="200px" width="300px" src="{{ asset('public/img/review/' . $user->review_img) }}" alt="" srcset=""></div>
+                    @else
+                        <div class="d-block mx-auto" style="height:200px; width:300px; top: 40px; left: 0px"><img height="200px" width="300px" src="{{ asset('public/notes.jpg') }}" alt="" srcset=""></div>
+                    @endif
+                </div>
 
+                
+                <div class="pageWrap d-md-flex flex-row  d-lg-none mx-auto mt-4 mt-sm-5 mt-md-0" style="height: 100px; width:300px">
+                    <div>
+                        {{-- <img src="{{ asset('tv.jpg') }}" alt="" srcset=""> --}}
+                    </div>
 
+                    <div class="buttonwrapper">
+                    {{-- <a href="" class="prev"><i class="fa-solid fa-angle-left"></i></a> --}}
+                    </div>
+                    <div class="sliderOute" style="background-image: url('{{ asset('public/TV_BG.webp') }}');     
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        width: 100%;
+                        height: 200%;">
+                        
+                            @foreach ($updates as $update) 
+                            @php
+                                $mediaItem = $update->media()->first();
+                            @endphp
+
+                            @if ($mediaItem) 
+                                {{-- // Access the 'image' property for the first media item
+                                // dd($mediaItem->image); --}}
+                                <div class="slide" style="top:25px;">
+                                    <img style="
+                                            
+                                            height: 150px;
+                                            width: 190px;
+                                            margin-left: -66px;
+                                            border-radius: 31px;
+                                            border: 4px solid black;
+                                            " src="{{ asset('files/storage/'.$update->id.'/'.$mediaItem->image) }}" alt="" srcset="">
+                                </div>
+                            @endif
+                        @endforeach
+                        
+                    </div>
+                    <div class="buttonwrapper">
+                        {{-- <a href="" class="next"><i class="fa-solid fa-angle-right"></i></a> --}}
+                        {{-- <a href="" class="playBtn">Play/Pause</a> --}}
+                    </div>
+                </div>
+                
+
+            </div>
+
+            <div class="d-sm-block d-md-none" style="margin: 140px !important" ></div>
 
             @if ($user->verified_id == 'yes')
             <ul class="nav nav-profile justify-content-center nav-fill mt-5">
@@ -1057,7 +1115,7 @@ body{width:100%;max-width:100%;margin:0 auto;padding:0;}
                                 @if(isset($key) && $key == 1)
 
                                 <p class="m-0"
-                                    style="border-top-right-radius:15px;border-top-left-radius:15px; text-align: center;background-color: #7f28b5; color:white;">
+                                    style="position: absolute;top:0px;left:0;right: 0;border-top-right-radius:15px;border-top-left-radius:15px; text-align: center;background-color: #7f28b5; color:white;">
                                     YOU MIGHT LIKE</p>
                                 @endif
 
@@ -1902,84 +1960,87 @@ body{width:100%;max-width:100%;margin:0 auto;padding:0;}
 <script src="{{ asset('public/js/qrcode.min.js') }}?v={{$settings->version}}"></script>
 
 <script type="text/javascript">
-// slider start
-                        $(document).ready(function(){
-                            if($('.sliderOute').length > 0){
 
-                                var max = -1;
-                                $(".slide").each(function() {
-                                    var h = $(this).height(); 
-                                    max = h > max ? h : max;
-                                });
-                                $('.slide').css("min-height", max);
-                                if($('.slide.active').length < 1){
-                                    $('.slide:first').addClass('active');
-                                    $('.slide:last').addClass('prev');
-                                }
-                                $('.slide.active').next().addClass('next');
-                                $('.slide.active').prev().addClass('prev');		
-                                $(document).on("click",".next", function(e){
-                                    e.preventDefault();
-                                    nextSlide();
-                                });
-                                $(document).on("click",".prev", function(e){
-                                    e.preventDefault();
-                                    var currentActive = $('.slide.active');
-                                    if($('.slide:first').hasClass("active") || $('.slide:nth-child(2)').hasClass("active")){
-                                        if($('.slide:nth-child(2)').hasClass("active")){
-                                            currentActive.removeClass("active").addClass("next");
-                                            currentActive.siblings().removeClass("next prev");
-                                            currentActive.prev().addClass("active");
-                                            $('.slide:last').addClass("prev");
-                                        }else{
-                                            currentActive.removeClass("active").addClass("next");
-                                            $('.slide:last').removeClass("prev").addClass("active");
-                                            $('.slide:nth-last-child(2)').addClass("prev");
-                                        }
-                                    }else{
-                                        currentActive.removeClass("active").addClass("next");
-                                        currentActive.siblings().removeClass("next prev");
-                                        currentActive.prev().addClass("active").prev().addClass("prev");
-                                    }
-                                });
+    // slider start
+    // Define a function to initialize the slider
+function initializeSlider(sliderContainer, index) {
+    var max = -1;
+    var slides = sliderContainer.find(".slide");
 
-                                //AUTOPLAY
-                                var intervalId = setInterval(intervalFunction, 3000);
-                                function intervalFunction () {
-                                    nextSlide();
-                                }
-                                $(document).on("click",".playBtn", function(e){
-                                    e.preventDefault();
-                                    $(this).toggleClass("play");
-                                    if ($(this).hasClass("play")) {
-                                        intervalId = setInterval(intervalFunction, 1000);
-                                    }else{
-                                        clearInterval(intervalId);
-                                    }
-                                });
-                            }
+    slides.each(function () {
+        var h = $(this).height();
+        max = h > max ? h : max;
+    });
 
-                            //NEXT SLIDE FUNCTION
-                            function nextSlide(){
-                                var currentActive = $('.slide.active');		
-                                if($('.slide:last').hasClass("active") || $('.slide:nth-last-child(2)').hasClass("active")){
-                                    if($('.slide:nth-last-child(2)').hasClass("active")){
-                                        currentActive.removeClass("active").addClass("prev");
-                                        currentActive.siblings().removeClass("next prev");
-                                        currentActive.next().addClass("active");
-                                        $('.slide:first').addClass("next");
-                                    }else{
-                                        currentActive.removeClass("active").addClass("prev");
-                                        $('.slide:first').removeClass("next").addClass("active").next().addClass("next");
-                                        $('.slide:nth-last-child(2)').removeClass("prev")
-                                    }
-                                }else{
-                                    currentActive.removeClass("active").addClass("prev");
-                                    currentActive.siblings().removeClass("next prev");
-                                    currentActive.next().addClass("active").next().addClass("next");
-                                }
-                            };
-                        });
+    slides.css("min-height", max);
+
+    if (slides.filter('.active').length < 1) {
+        slides.first().addClass('active');
+        slides.last().addClass('prev');
+    }
+
+    slides.filter('.active').next().addClass('next');
+    slides.filter('.active').prev().addClass('prev');
+
+    // Use unique event handlers for this slider
+    sliderContainer.on("click", ".next", function (e) {
+        e.preventDefault();
+        nextSlide();
+    });
+
+    sliderContainer.on("click", ".prev", function (e) {
+        e.preventDefault();
+        prevSlide();
+    });
+
+    //AUTOPLAY
+    var intervalId = setInterval(intervalFunction, 3000);
+
+    sliderContainer.on("click", ".playBtn", function (e) {
+        e.preventDefault();
+        $(this).toggleClass("play");
+        if ($(this).hasClass("play")) {
+            intervalId = setInterval(intervalFunction, 1000);
+        } else {
+            clearInterval(intervalId);
+        }
+    });
+
+    //NEXT SLIDE FUNCTION
+    function nextSlide() {
+        var currentActive = sliderContainer.find('.slide.active');
+
+        if (slides.last().hasClass("active") || slides.eq(-2).hasClass("active")) {
+            if (slides.eq(-2).hasClass("active")) {
+                currentActive.removeClass("active").addClass("prev");
+                slides.siblings().removeClass("next prev");
+                currentActive.next().addClass("active");
+                slides.first().addClass("next");
+            } else {
+                currentActive.removeClass("active").addClass("prev");
+                slides.first().removeClass("next").addClass("active").next().addClass("next");
+                slides.eq(-2).removeClass("prev");
+            }
+        } else {
+            currentActive.removeClass("active").addClass("prev");
+            slides.siblings().removeClass("next prev");
+            currentActive.next().addClass("active").next().addClass("next");
+        }
+    }
+
+    // Function to handle autoplay
+    function intervalFunction() {
+        nextSlide();
+    }
+}
+
+// Call the initializeSlider function for each slider on the page
+$(document).ready(function () {
+    $('.sliderOute').each(function (index) {
+        initializeSlider($(this), index);
+    });
+});
+
 
                         // slider end
     @if($settings -> generate_qr_code)

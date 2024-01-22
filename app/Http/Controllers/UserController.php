@@ -975,9 +975,9 @@ class UserController extends Controller
         'one_desc' => 'required',
         'two_dsc' => 'required',
         'desc_three' => 'required',
-        'image_three' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'two_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'one_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image_three' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        'two_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        'one_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         'status' => 'numeric|default:1',
       ]);
 
@@ -1216,7 +1216,7 @@ class UserController extends Controller
 
 
       // Copy folder
-      // Storage::put($path . $avatar, $imgAvatar);
+      Storage::put($path . $avatar, $imgAvatar);
       $filess = $path . $avatar;
       // $filess->storeAs('public/images/profile/', $filename);
 

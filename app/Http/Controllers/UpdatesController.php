@@ -28,7 +28,7 @@ use League\Glide\Responses\LaravelResponseFactory;
 class UpdatesController extends Controller
 {
   use Traits\Functions;
-
+  
   public function __construct(AdminSettings $settings, Request $request)
   {
     $this->settings = $settings::first();
