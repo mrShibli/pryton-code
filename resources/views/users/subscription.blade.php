@@ -84,8 +84,8 @@
                         <strong class="text-danger">{{ $message }}</strong>
                         @enderror
                         <div class="input-group mb-2 px-4" style="border: 2px solid #cdd4da;">
-                            <p class=" mt-3 fileNameResult">Upload image *900x480px</p>
-                            <input type="file" class="form-control-file fileInput"  name="one_img">
+                            <p class=" mt-3 fileNameResult1">Upload image *900x480px</p>
+                            <input type="file" class="form-control-file fileInput1"  name="one_img">
                         </div>
                         @error('one_img')
                         <strong class="text-danger">{{ $message }}</strong>
@@ -128,8 +128,8 @@
                         <strong class="text-danger">{{ $message }}</strong>
                         @enderror
                         <div class="input-group mb-2 px-4" style="border: 2px solid #cdd4da;">
-                            <p class=" mt-3 fileNameResult">Upload image *900x480px</p>
-                            <input type="file" class="form-control-file fileInput"  name="two_img">
+                            <p class=" mt-3 fileNameResult2">Upload image *900x480px</p>
+                            <input type="file" class="form-control-file fileInput2"  name="two_img">
                         </div>
                         @error('two_img')
                         <strong class="text-danger">{{ $message }}</strong>
@@ -171,8 +171,8 @@
                         <strong class="text-danger">{{ $message }}</strong>
                         @enderror
                         <div class="input-group mb-2 px-4" style="border: 2px solid #cdd4da;">
-                            <p class=" mt-3 fileNameResult">Upload image *900x480px</p>
-                            <input type="file" class="form-control-file fileInput"  name="image_three">
+                            <p class=" mt-3 fileNameResult3">Upload image *900x480px</p>
+                            <input type="file" class="form-control-file fileInput3"  name="image_three">
                         </div>
                         @error('image_three')
                         <strong class="text-danger">{{ $message }}</strong>
@@ -215,9 +215,19 @@
 <script>
     // {{-- fileInput --}}
     $(document).ready(function() {
-        $(".fileInput").on("change", function() {
+        $(".fileInput1").on("change", function() {
             var fileName = $(this).val().split("\\").pop();
-            $(".fileNameResult").text("File Name: " + fileName);
+            $(".fileNameResult1").text("File Name: " + fileName);
+        });
+
+        $(".fileInput2").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(".fileNameResult2").text("File Name: " + fileName);
+        });
+
+        $(".fileInput3").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(".fileNameResult3").text("File Name: " + fileName);
         });
     });
 </script>
