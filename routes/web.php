@@ -189,7 +189,7 @@ Route::get('verify/account/{confirmation_code}', [HomeController::class, 'getVer
 	 Route::get('dashboard', [UserController::class, 'dashboard']);
 
 	 // Buy Subscription
-	 Route::post('buy/subscription', [SubscriptionsController::class, 'buy']);
+	 Route::post('buy/subscription', [SubscriptionsController::class, 'buy'])->name('buy');
 
 	 // Free Subscription
 	 Route::post('subscription/free', [SubscriptionsController::class, 'subscriptionFree']);

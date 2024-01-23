@@ -43,7 +43,7 @@
 
 		
 				(function(){
-					 $("#formSubscription").ajaxForm({
+					$("#formSubscription").ajaxForm({
 					 dataType : 'json',
 					 success:  function(result) {
 
