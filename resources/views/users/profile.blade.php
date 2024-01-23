@@ -513,7 +513,7 @@
                                             'data-expiration' =>
                                                 __('general.subscription_expire') .
                                                 '
-                                                                                                                                                ' .
+                                                                                                                                                                                                                                ' .
                                                 Helper::formatDate(
                                                     auth()->user()->subscription('main', $checkSubscription->stripe_price)->asStripeSubscription()->current_period_end,
                                                     true,
@@ -531,7 +531,7 @@
                                         {!! Form::button('<i class="feather icon-user-check mr-1"></i> ' . __('general.your_subscribed'), [
                                             'data-expiration' => __('general.confirm_cancel_subscription'),
                                             'class' => 'btn btn-success
-                                                                                                                                                btn-profile mr-1 cancelBtn subscriptionActive',
+                                                                                                                                                                                                                                btn-profile mr-1 cancelBtn subscriptionActive',
                                         ]) !!}
                                         {!! Form::close() !!}
                                     @elseif ($paymentGatewaySubscription == 'Paystack' && $checkSubscription->cancelled == 'no')
@@ -545,10 +545,10 @@
                                             'data-expiration' =>
                                                 __('general.subscription_expire') .
                                                 '
-                                                                                                                                                ' .
+                                                                                                                                                                                                                                ' .
                                                 Helper::formatDate($checkSubscription->ends_at),
                                             'class' => 'btn btn-success btn-profile mr-1
-                                                                                                                                                cancelBtn subscriptionActive',
+                                                                                                                                                                                                                                cancelBtn subscriptionActive',
                                         ]) !!}
                                         {!! Form::close() !!}
                                     @elseif ($paymentGatewaySubscription == 'Wallet' && $checkSubscription->cancelled == 'no')
@@ -562,10 +562,10 @@
                                             'data-expiration' =>
                                                 __('general.subscription_expire') .
                                                 '
-                                                                                                                                                ' .
+                                                                                                                                                                                                                                ' .
                                                 Helper::formatDate($checkSubscription->ends_at),
                                             'class' => 'btn btn-success btn-profile mr-1
-                                                                                                                                                cancelBtn subscriptionActive',
+                                                                                                                                                                                                                                cancelBtn subscriptionActive',
                                         ]) !!}
                                         {!! Form::close() !!}
                                     @elseif ($paymentGatewaySubscription == 'PayPal' && $checkSubscription->cancelled == 'no')
@@ -579,10 +579,10 @@
                                             'data-expiration' =>
                                                 __('general.subscription_expire') .
                                                 '
-                                                                                                                                                ' .
+                                                                                                                                                                                                                                ' .
                                                 Helper::formatDate($checkSubscription->ends_at),
                                             'class' => 'btn btn-success btn-profile mr-1
-                                                                                                                                                cancelBtn subscriptionActive',
+                                                                                                                                                                                                                                cancelBtn subscriptionActive',
                                         ]) !!}
                                         {!! Form::close() !!}
                                     @elseif ($paymentGatewaySubscription == 'CCBill' && $checkSubscription->cancelled == 'no')
@@ -596,10 +596,10 @@
                                             'data-expiration' =>
                                                 __('general.subscription_expire') .
                                                 '
-                                                                                                                                                ' .
+                                                                                                                                                                                                                                ' .
                                                 Helper::formatDate($checkSubscription->ends_at),
                                             'class' => 'btn btn-success btn-profile mr-1
-                                                                                                                                                cancelBtn subscriptionActive',
+                                                                                                                                                                                                                                cancelBtn subscriptionActive',
                                         ]) !!}
                                         {!! Form::close() !!}
                                     @elseif ($checkSubscription->cancelled == 'yes' || $checkSubscription->stripe_status == 'canceled')
@@ -832,7 +832,7 @@
                                                         {!! __('general.subscribe_month', [
                                                             'price' =>
                                                                 '<span
-                                                                                                                                                                                                                            class="font-weight-bold">' .
+                                                                                                                                                                                                                                                                                                                                            class="font-weight-bold">' .
                                                                 Helper::formatPrice($user->getPlan($plan->id, 'monthly', 'price'), true) .
                                                                 '</span>',
                                                         ]) !!} {{ __('general.unlocked_content') }}
@@ -1255,12 +1255,15 @@
                                                 src="{{ asset('/public/public/images/' . $plan->img) }}" alt=""
                                                 srcset="" style="padding: 0px !important;">
 
-                                            <div class="pricingTable-header px-3">
+                                            <div class="pricingTable-header px-3 py-3">
                                                 <p class="text-left ml-3" style="font-size:22px;">{{ $plan->title }}
                                                 </p>
+                                                <ul class="pricing-content ml-3 text-left mt-3">
+                                                    {!! $plan->description !!}
+                                                </ul>
                                                 <div class="text-left ml-3">
                                                     <span class="font-weight-bold"
-                                                        style="font-size:19px;">{{ $plan->price }}</span>/
+                                                        style="font-size:19px;">{{ $plan->price }}$</span>/
                                                     <span class=""><span
                                                             class="value-bg"></span>{{ $plan->interval }}</span>
                                                 </div>
@@ -1284,9 +1287,7 @@
                                                     </a>
                                                 @endauth
                                             </div>
-                                            <ul class="pricing-content text-left px-3 ml-3 mt-3">
-                                                {!! $plan->description !!}
-                                            </ul>
+
                                         </div>
                                     </div><!-- END COL  -->
                                 @endforeach
@@ -1746,7 +1747,7 @@
 
     @if (auth()->check() && auth()->id() != $user->id && !$checkSubscription && $user->verified_id == 'yes')
         <!--
-            {{-- @if ($user->free_subscription == 'no') 
+                    {{-- @if ($user->free_subscription == 'no') 
 <div class="modal fade" id="subscriptionForm" tabindex="-1" role="dialog" aria-labelledby="modal-form"
     aria-hidden="true">
     <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
@@ -2274,18 +2275,18 @@
 
     <script>
         function initForm(id) {
-            let formData= $('#' + id).serialize();
+            let formData = $('#' + id).serialize();
 
             $(this).prop('disabled', true);
             $.ajax({
                 type: 'post',
                 url: "{{ route('buy') }}",
                 data: formData,
-                success: function (response) {
+                success: function(response) {
                     $(this).prop('disabled', false);
-                    if(response.success == true){
+                    if (response.success == true) {
                         window.location.href = response.url;
-                    }else{
+                    } else {
                         swal.fire({
                             'type': 'error',
                             'icon': 'error',
@@ -2293,7 +2294,7 @@
                         });
                     }
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     // Handle errors if needed
                     console.error(xhr.responseText);
                 }
