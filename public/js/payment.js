@@ -40,6 +40,8 @@
         var payment = $('input[name=payment_gateway]:checked').val();
         element.find('i').addClass('spinner-border spinner-border-sm align-middle mr-1');
 
+
+		
 				(function(){
 					 $("#formSubscription").ajaxForm({
 					 dataType : 'json',

@@ -1,3 +1,9 @@
+@php
+    $bg='';
+    auth()->check() && auth()->user()->dark_mode == 'on' ? $bg=' black !important' : $bg='white !important';
+    $txt = '';
+    auth()->check() && auth()->user()->dark_mode == 'on' ? $txt='  white ' : $txt='black ';
+@endphp
 <style>
     .active-navbar .custom-header-button {
         border-color: black;
@@ -87,12 +93,12 @@
     }
 
     .active-navbar .tab-head-content .tab-head {
-        color: black;
+        color: rgb(107, 50, 164) !important;
     }
 
     .custom-drop-down-menu .nav-item:hover .nav-link {
         background: black;
-        color: white;
+        color: white ;
     }
 
     .tab-head-content .tab-head {
@@ -151,7 +157,7 @@
 
     .tab-pane {
         position: absolute;
-        background: white;
+        background:  {{ $bg }} ;
         width: 100%;
         height: auto;
         transition: 300ms;
@@ -161,7 +167,6 @@
         opacity: 0;
         padding: 20px 35px;
     }
-
     .tab-pane.active {
         top: 65px;
         visibility: visible;
@@ -842,10 +847,13 @@
             margin: 0px !important ;
         }
     }
-
+    /* tab-pane */
 
 </style>
-
+@php
+    
+    
+@endphp
 
 {{-- NAVBAR IN LARGE DEVICE --}}
 <nav class="custom-navbar hide-in-mobile" style="">
@@ -1071,11 +1079,11 @@
                     </form>
                     @endif
                     @guest
-                        <a @if (Helper::showLoginFormModal()) data-toggle="modal" data-target="#loginFormModal" @endif href="{{$settings->home_style == 0 ? url('login') : url('/')}}" class="btn btn-hover-white my-2 my-sm-0 mx-2 custom-header-button">
+                        <a  href="{{ url('login') }}" class="btn btn-hover-white my-2 my-sm-0 mx-2 custom-header-button">
                             {{trans('auth.login')}}
                         </a>
                         @if ($settings->registration_active == '1')
-                        <a @if (Helper::showLoginFormModal()) data-toggle="modal" data-target="#loginFormModal" @endif href="{{$settings->home_style == 0 ? url('signup') : url('/')}}" class="toggleRegister nav-link btn btn-hover-white bg-white my-2 my-sm-0 custom-header-button header-get-started text-dark">
+                        <a  href="{{ url('signup')}}" class="toggleRegister nav-link btn btn-hover-white bg-white my-2 my-sm-0 custom-header-button header-get-started text-dark">
                             {{ trans('general.getting_started') }}
                         </a>
                         @endif
