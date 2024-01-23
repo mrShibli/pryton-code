@@ -643,9 +643,7 @@
 			</a>
 		</h4>
 
-		<div class="w-100 mb-3 containerLikeComment" style="background-color: #f4f3f3;
-		padding: 14px;
-		border-radius: 13px;">
+		<div class="w-100 mb-3 containerLikeComment" style="">
 			<span class="countLikes text-muted dot-item">
 				{{ trans_choice('general.like_likes', $totalLikes, ['total' => number_format($totalLikes)]) }}
 			</span> 
