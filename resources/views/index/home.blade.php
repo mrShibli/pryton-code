@@ -4522,7 +4522,7 @@
                                         <button type="submit" style="z-index: 110 !important">
                                             <i class="px-4 text-white fa-solid fa-magnifying-glass"></i>
                                         </button>
-                                        <select class="px-4" name="country" style="z-index: 110 !important">
+                                        <select class="px-4" name="country" style="z-index: 98 !important">
                                             <option>Select Country</option>
                                             @foreach ($countries as $country)
                                                 <option value="{{ $country->id }}">{{ $country->country_name }}</option>
@@ -4530,7 +4530,7 @@
                                         </select>
                                     <span class="borderend d-lg-block d-md-block d-sm-none d-none">|</span>
                                 </div>
-                                <div class="" style="z-index: 110 !important">
+                                <div class="" style="z-index: 98 !important">
                                     <select class="px-4" name="categorie" >
                                         <option>Select categorie</option>
                                         @foreach ($categories as $categorie)
@@ -4543,15 +4543,15 @@
                             </form>
                         </div>
                         
-                        <div class="sc-ed2cd4bb-1 gHwEHr" style="z-index: 110 !important">
+                        <div class="sc-ed2cd4bb-1 gHwEHr" style="z-index: 98 !important">
                             <div class="sc-f087927f-0 hzuLcl block">
                                 <p class="sc-e6679e59-0 fWJJtW text-left text-base">
                                     Connect with your customers, share your work directly
                                     with audiences, and earn income beyond ad revenue.
                                    
                                 </p>
-                                <div class="sc-42b34c08-0 odNiZ" style="z-index: 110 !important">
-                                    <a href="https://patronpass.bar/signup" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC sc-5de05abd-0 heSnOH primary button strapi-link">
+                                <div class="sc-42b34c08-0 odNiZ" style="z-index: 98 !important">
+                                    <a href="" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC sc-5de05abd-0 heSnOH primary button strapi-link">
                                         <div data-label="Create on Patreonpass" class="label-wrapper">
                                             <span class="label">Create on Patreonpass</span>
                                         </div>
