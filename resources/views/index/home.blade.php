@@ -4483,7 +4483,14 @@
         <div class="container-inner">
             <div>
                 <div data-hydra='{"type":"CreatorHero","variation":"podcast","colors":["#242f32","#b8a998","#4f6466","#8c765d"]}' class="sc-ed2cd4bb-0 fMybcq">
-                    <div class="background" style="z-index: 100">
+                    <div class="backgrounds" style="
+                            width: 100%;
+                            height: calc(100% + 12rem);
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            z-index: 10
+                        ">
                         {{-- <img src="{{ asset('public/img/PatronPass HomePage Image.JPG') }}" />
                         {{-- {{-- <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" /> --}}
                         {{-- <img src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg" /> --}}
@@ -4491,25 +4498,7 @@
                         <img src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg" alt="" srcset="">
                         <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
                     </div>
-                       <!--  Gsap is needed for Basic Effects -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-                    <!-- Scroll Trigger is needed for Scroll Effects -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-                    <!-- Three.js is needed for 3d Effects -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
-
-                    <!-- ControlKit is needed for Debug Panel -->
-                    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
-                    <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script> <!-- Recommended -->
-                    <script>
-                        Shery.imageEffect(".background", {
-                            style: 6,
-                            debug: true,
-                            gooey: true,
-                        }); 
-                    </script>
+                    
 
                     
                     <div class="content">
@@ -4528,12 +4517,12 @@
                             <form action="{{ url('creators') }}">
                                
                                 
-                                <div class="float-right mr-5 p-4 search-div">
+                                <div class="float-right mr-5 p-4 search-div" >
                                     <div class="d-flex flex-row">
-                                        <button type="submit">
+                                        <button type="submit" style="z-index: 110 !important">
                                             <i class="px-4 text-white fa-solid fa-magnifying-glass"></i>
                                         </button>
-                                        <select class="px-4" name="country">
+                                        <select class="px-4" name="country" style="z-index: 110 !important">
                                             <option>Select Country</option>
                                             @foreach ($countries as $country)
                                                 <option value="{{ $country->id }}">{{ $country->country_name }}</option>
@@ -4541,8 +4530,8 @@
                                         </select>
                                     <span class="borderend d-lg-block d-md-block d-sm-none d-none">|</span>
                                 </div>
-                                <div class="">
-                                    <select class="px-4" name="categorie">
+                                <div class="" style="z-index: 110 !important">
+                                    <select class="px-4" name="categorie" >
                                         <option>Select categorie</option>
                                         @foreach ($categories as $categorie)
                                             <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
@@ -4554,14 +4543,14 @@
                             </form>
                         </div>
                         
-                        <div class="sc-ed2cd4bb-1 gHwEHr">
+                        <div class="sc-ed2cd4bb-1 gHwEHr" style="z-index: 110 !important">
                             <div class="sc-f087927f-0 hzuLcl block">
                                 <p class="sc-e6679e59-0 fWJJtW text-left text-base">
                                     Connect with your customers, share your work directly
                                     with audiences, and earn income beyond ad revenue.
                                    
                                 </p>
-                                <div class="sc-42b34c08-0 odNiZ">
+                                <div class="sc-42b34c08-0 odNiZ" style="z-index: 110 !important">
                                     <a href="https://patronpass.bar/signup" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC sc-5de05abd-0 heSnOH primary button strapi-link">
                                         <div data-label="Create on Patreonpass" class="label-wrapper">
                                             <span class="label">Create on Patreonpass</span>
@@ -5007,5 +4996,25 @@
 
 
 @section('javascript')
- 
+    <!--  Gsap is needed for Basic Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Scroll Trigger is needed for Scroll Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Three.js is needed for 3d Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+
+    <!-- ControlKit is needed for Debug Panel -->
+    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+    <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script> <!-- Recommended -->
+    <script>
+        Shery.imageEffect(".backgrounds", {
+            style: 3,
+            debug: false,
+            gooey: true,
+            config: {"uFrequencyX":{"value":100,"range":[0,100]},"uFrequencyY":{"value":0,"range":[0,100]},"uFrequencyZ":{"value":0,"range":[0,100]},"geoVertex":{"range":[1,64],"value":32},"zindex":{"value":-9996999,"range":[-9999999,9999999]},"aspect":{"value":1.7517336630236409},"ignoreShapeAspect":{"value":true},"shapePosition":{"value":{"x":0,"y":0}},"shapeScale":{"value":{"x":1,"y":1}},"shapeEdgeSoftness":{"value":0,"range":[0,0.5]},"shapeRadius":{"value":0,"range":[0,2]},"currentScroll":{"value":0},"scrollLerp":{"value":0.07},"gooey":{"value":true},"infiniteGooey":{"value":true},"growSize":{"value":4,"range":[1,15]},"durationOut":{"value":1,"range":[0.1,5]},"durationIn":{"value":1.5,"range":[0.1,5]},"displaceAmount":{"value":0.5},"masker":{"value":false},"maskVal":{"value":1,"range":[1,5]},"scrollType":{"value":0},"noEffectGooey":{"value":true},"onMouse":{"value":0},"noise_speed":{"value":0.2,"range":[0,10]},"metaball":{"value":0.2,"range":[0,2],"_gsap":{"id":3}},"discard_threshold":{"value":0.5,"range":[0,1]},"antialias_threshold":{"value":0,"range":[0,0.1]},"noise_height":{"value":0.38,"range":[0,2]},"noise_scale":{"value":10.69,"range":[0,100]},"uTime":{"value":37.14299999999965}}
+        });
+        
+    </script>
 @endsection
