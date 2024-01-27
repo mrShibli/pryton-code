@@ -4483,7 +4483,14 @@
         <div class="container-inner">
             <div>
                 <div data-hydra='{"type":"CreatorHero","variation":"podcast","colors":["#242f32","#b8a998","#4f6466","#8c765d"]}' class="sc-ed2cd4bb-0 fMybcq">
-                    <div class="background">
+                    <div class="backgrounds" style="
+                            width: 100%;
+                            height: calc(100% + 12rem);
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            z-index:100
+                        ">
                         {{-- <img src="{{ asset('public/img/PatronPass HomePage Image.JPG') }}" />
                         {{-- {{-- <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" /> --}}
                         {{-- <img src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg" /> --}}
@@ -4491,25 +4498,7 @@
                         <img src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg" alt="" srcset="">
                         <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
                     </div>
-                       <!--  Gsap is needed for Basic Effects -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-                    <!-- Scroll Trigger is needed for Scroll Effects -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-                    <!-- Three.js is needed for 3d Effects -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
-
-                    <!-- ControlKit is needed for Debug Panel -->
-                    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
-                    <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script> <!-- Recommended -->
-                    <script>
-                        Shery.imageEffect(".background", {
-                            style: 6,
-                            debug: true,
-                            gooey: true,
-                        }); 
-                    </script>
+                    
 
                     
                     <div class="content">
@@ -5007,5 +4996,23 @@
 
 
 @section('javascript')
- 
+    <!--  Gsap is needed for Basic Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Scroll Trigger is needed for Scroll Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Three.js is needed for 3d Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+
+    <!-- ControlKit is needed for Debug Panel -->
+    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+    <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script> <!-- Recommended -->
+    <script>
+        Shery.imageEffect(".backgrounds", {
+            style: 6,
+            debug: true,
+            gooey: true,
+        }); 
+    </script>
 @endsection
