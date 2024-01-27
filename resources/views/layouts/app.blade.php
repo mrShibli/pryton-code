@@ -11,7 +11,7 @@
   <meta name="theme-color" content="{{ auth()->check() && auth()->user()->dark_mode == 'on' ? '#303030' : $settings->color_default }}">
   <title>{{ auth()->check() && User::notificationsCount() ? '('.User::notificationsCount().') ' : '' }}@section('title')@show {{$settings->title.' - '.__('seo.slogan')}}</title>
   <!-- Favicon -->
-  
+
   <link href="{{ url('public/img', $settings->favicon) }}" rel="icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-
+  
 
   @if ($settings->google_tag_manager_head != '')
   {!! $settings->google_tag_manager_head !!}
@@ -33,7 +33,7 @@
   @endif
 
   @yield('css')
-
+  <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" /> <!-- Recommended -->
  @if ($settings->google_analytics != '')
   {!! $settings->google_analytics !!}
   @endif
@@ -207,6 +207,8 @@ footer{
 @auth
   <div id="bodyContainer"></div>
 @endauth
+
+
 <script>
     $(document).ready(function(){
 
@@ -336,3 +338,9 @@ footer{
 </script>
 </body>
 </html>
+
+
+
+
+
+
