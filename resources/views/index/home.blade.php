@@ -4476,6 +4476,57 @@
     }
     }
 
+    .dd-none{
+        display: none !important;
+    }
+    @media only screen and (max-width: 550px) and (min-width: 200px)  {
+        .backgrounds{
+            display: none !important ;
+        }
+        .dd-none  {
+        display: block !important ;
+    }
+    }
+
+
+
+.cardy:hover::before {
+  opacity: 1;
+}
+
+.cardy::before,
+.cardy::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.cardy::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(252, 252, 252, 0.3),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+.cardy::after {  
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(252, 252, 252, 0.3),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+
+
 </style>
 
 <main id="main-content" class="sc-a41b65c2-0 iitCdJ">
@@ -4491,14 +4542,17 @@
                             top: 0;
                             z-index: 10
                         ">
-                        {{-- <img src="{{ asset('public/img/PatronPass HomePage Image.JPG') }}" />
+                         <img src="{{ asset('public/img/PatronPass HomePage Image.JPG') }}" />
+                         
                         {{-- {{-- <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" /> --}}
                         {{-- <img src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg" /> --}}
                         {{-- <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" /> --}}
                         <img src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg" alt="" srcset="">
                         <img src="https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg" alt="">
                     </div>
-                    
+                    <div class="background dd-none">
+                        <img src="{{ asset('public/img/PatronPass HomePage Image.JPG') }}" />
+                    </div>
 
                     
                     <div class="content">
@@ -4573,10 +4627,13 @@
             </div>
         </div>
     </div>
+
+
     <div class="sc-fc3e0d65-0 izRDca marketing.floating-product-ui-3" data-theme="light" id="Get_to_know_your_customers">
         <div class="container-inner">
             <div id="get-to-know-your-listeners" class="sc-bc160cdd-0 dgscJZ">
-                <div style="
+                <div 
+                style="
                   background-color: #cba37f;
                   background-image: radial-gradient(
                       87% 113% at 79% 40%,
@@ -4610,10 +4667,10 @@
                       26% 39% at 74% 111%,
                       rgba(231, 190, 153, 1) 0%,
                       rgba(231, 190, 153, 0) 90%
-                    );
-                " data-hydra='{"type":"GradientBackground","colors":["#ae8966","#cba37f","#e7be99","#ffdab4"]}' class="sc-ded3217a-0 dRRdTF sc-bc160cdd-9 cxQBOU"></div>
-                <div data-hydra='{"type":"FloatingProductUI","aspects":[0.46072684642438455]}' class="sc-bc160cdd-1 joKlX">
-                    <div class="sc-bc160cdd-2 iwJvfq">
+                    ); "
+                     data-hydra='{"type":"GradientBackground","colors":["#ae8966","#cba37f","#e7be99","#ffdab4"]}' class="sc-ded3217a-0 dRRdTF sc-bc160cdd-9 cxQBOU height"></div>
+                <div data-hydra='{"type":"FloatingProductUI","aspects":[0.46072684642438455]}' class="sc-bc160cdd-1 joKlX cardsmama" id="">
+                    <div class="sc-bc160cdd-2 iwJvfq cardy">
                         <div class="sc-bc160cdd-8 jSzbRL single">
                             <div class="sc-bc160cdd-7 gDcGbm tall single transparent">
                                 <img src="../../c15.patreon.com/thumbnail_Mobile_Community_3_fd9bd5a72e.png" alt="Real-time Chats" width="393" height="853" loading="lazy" decoding="async" srcset="
@@ -4685,12 +4742,12 @@
                       rgba(192, 201, 185, 1) 0%,
                       rgba(192, 201, 185, 0) 90%
                     );
-                " data-hydra='{"type":"GradientBackground","colors":["#8a9384","#a5ad9e","#c0c9b9","#dce5d5"]}' class="sc-ded3217a-0 dRRdTF sc-bc160cdd-9 cxQBOU"></div>
-                <div data-hydra='{"type":"FloatingProductUI","aspects":[0.4612676056338028]}' class="sc-bc160cdd-1 joKlX">
-                    <div class="sc-bc160cdd-2 lLudu">
+                " data-hydra='{"type":"GradientBackground","colors":["#8a9384","#a5ad9e","#c0c9b9","#dce5d5"]}' class="sc-ded3217a-0 dRRdTF sc-bc160cdd-9 cxQBOU height"></div>
+                <div data-hydra='{"type":"FloatingProductUI","aspects":[0.4612676056338028]}' class="sc-bc160cdd-1 joKlX cardsmama" id="">
+                    <div class="sc-bc160cdd-2 lLudu cardy">
                         <div class="sc-bc160cdd-8 frvkIR single">
                             <div class="sc-bc160cdd-7 gDcGbm tall single transparent">
-                                <img src="https://patronpass.bar/public/img/barbbbbb.png" alt="Achewood" width="393" height="852" loading="lazy" decoding="async" "
+                                <img src="{{ asset('public/large_Mobile_Launcher_2_54a4d99815.png') }}" alt="Achewood" width="393" height="852" loading="lazy" decoding="async" "
                                         style=" width: 39.3rem; height: 85.2rem" sizes="(max-width: 768px) 100.769vw, 393px" />
                             </div>
                         </div>
@@ -4781,8 +4838,8 @@
                       rgba(251, 175, 219, 0) 90%
                     );
                 " data-hydra='{"type":"GradientBackground","colors":["#c17aa4","#de94bf","#fbafdb","#ffcbf8"]}' class="sc-ded3217a-0 dRRdTF sc-bc160cdd-9 cxQBOU"></div>
-                <div data-hydra='{"type":"FloatingProductUI","aspects":[1.40625]}' class="sc-bc160cdd-1 joKlX">
-                    <div class="sc-bc160cdd-2 iZoUUF wide">
+                <div data-hydra='{"type":"FloatingProductUI","aspects":[1.40625]}' class="sc-bc160cdd-1 joKlX cardsmama">
+                    <div class="sc-bc160cdd-2 iZoUUF wide cardy">
                         <div class="sc-bc160cdd-8 fsjKUz single wide">
                             <div class="sc-bc160cdd-7 gDcGbm wide single transparent">
                                 <img src="../../c15.patreon.com/thumbnail_Desktop_Shop_0c35f562b2.png" alt="KnowForSure Patreon page in desktop web browser" width="1080" height="768" loading="lazy" decoding="async" srcset="
@@ -4852,9 +4909,9 @@
                       rgba(252, 220, 201, 1) 0%,
                       rgba(252, 220, 201, 0) 90%
                     );
-                " data-hydra='{"type":"GradientBackground","colors":["#c3a593","#dfc0ad","#fcdcc9","#fff8e5"],"targetLightness":85}' class="sc-ded3217a-0 dRRdTF sc-f21e8154-1 kYpEBV"></div>
-                <div class="sc-f21e8154-2 donSPk">
-                    <div class="sc-f21e8154-3 fQPqZY slide-0">
+                " data-hydra='{"type":"GradientBackground","colors":["#c3a593","#dfc0ad","#fcdcc9","#fff8e5"],"targetLightness":85}' class="sc-ded3217a-0 dRRdTF sc-f21e8154-1 kYpEBV "></div>
+                <div class="sc-f21e8154-2 donSPk  ">
+                    <div class="sc-f21e8154-3 fQPqZY slide-0 ">
                         <div class="sc-f21e8154-6 jGuHxB">
                             <img src="../../c15.patreon.com/thumbnail_Patreon_website_Module2_2x_wide_72dpi_0000s_0011_Layer_0_b75b7499a5.jpg" alt="2 Black Girls, 1 Rose image" width="3840" height="2160" loading="lazy" decoding="async" srcset="
                         https://c15.patreon.com/thumbnail_Patreon_website_Module2_2x_wide_72dpi_0000s_0011_Layer_0_b75b7499a5.jpg  245w,
@@ -4928,27 +4985,27 @@
                 <div class="carousel">
                     <div class="sc-f21e8154-4 fFxx titles">
                         <h2 class="sc-d9f24904-0 iRNDkk sc-f21e8154-5 uHnoO">
-                            <span class="title-0"><a href="https://www.patreon.com/2blackgirls1rose" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">2 Black Girls,
+                            <span class="title-0"><a href="" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">2 Black Girls,
                                     1 Rose</a></span>
                         </h2>
                         <h2 class="sc-d9f24904-0 iRNDkk sc-f21e8154-5 uHnoO">
-                            <span class="title-1"><a href="https://www.patreon.com/straightupsisters" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">Straight Up
+                            <span class="title-1"><a href="" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">Straight Up
                                     Sisters</a></span>
                         </h2>
                         <h2 class="sc-d9f24904-0 iRNDkk sc-f21e8154-5 uHnoO">
-                            <span class="title-2"><a href="https://www.patreon.com/chelseadevantez" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">Chelsea
+                            <span class="title-2"><a href="" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">Chelsea
                                     Devantez</a></span>
                         </h2>
                         <h2 class="sc-d9f24904-0 iRNDkk sc-f21e8154-5 uHnoO">
-                            <span class="title-3"><a href="https://www.patreon.com/TheRoyalsofMalibu" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">The Royals of
+                            <span class="title-3"><a href="" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">The Royals of
                                     Malibu</a></span>
                         </h2>
                         <h2 class="sc-d9f24904-0 iRNDkk sc-f21e8154-5 uHnoO">
-                            <span class="title-4"><a href="https://www.patreon.com/TheGirlsBathroom" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">The Girls
+                            <span class="title-4"><a href="" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">The Girls
                                     Bathroom</a></span>
                         </h2>
                         <h2 class="sc-d9f24904-0 iRNDkk sc-f21e8154-5 uHnoO">
-                            <span class="title-5"><a href="https://www.patreon.com/rabiaandellyn" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">Rabia and
+                            <span class="title-5"><a href="" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">Rabia and
                                     Ellyn</a></span>
                         </h2>
                     </div>
@@ -4970,7 +5027,7 @@
                                 Your world to create
                             </h4>
                             <div class="sc-42b34c08-0 hZMjsW">
-                                <a href="https://patronpass.bar/signup" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC sc-5de05abd-0 heSnOH primary button strapi-link">
+                                <a href="" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC sc-5de05abd-0 heSnOH primary button strapi-link">
                                     <div data-label="Get started" class="label-wrapper">
                                         <span class="label">Get started</span>
                                     </div>
@@ -4978,18 +5035,20 @@
                             </div>
                             <p class="sc-e6679e59-0 fWJJtW text-center text-base">
                                 Already have an account?
-                                <a href="https://patreon.com/login" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">Log
+                                <a href="" target="_blank" rel="noopener noreferrer" class="sc-f2282c81-0 hbWhaC strapi-link">Log
                                     in</a>
                             </p>
                         </div>
                     </div>
                     <div class="app-store">
-                        <a href="https://patronpass.bar/" class="app-store-button" target="_blank" rel="noopener noreferrer" title="Get it on Google Play"><img src="{{ asset('img') }}/play.png" width="256" height="76" alt="Get it on Google Play" /></a><a href="https://patronpass.bar/" class="app-store-button" target="_blank" rel="noopener noreferrer" title="Download on the App Store"><img src="{{ asset('img') }}/apple.png" width="256" height="76" alt="Download on the App Store" /></a>
+                        <a href="" class="app-store-button" target="_blank" rel="noopener noreferrer" title="Get it on Google Play"><img src="{{ asset('public/img') }}/play.png" width="256" height="76" alt="Get it on Google Play" /></a><a href="https://patronpass.bar/" class="app-store-button" target="_blank" rel="noopener noreferrer" title="Download on the App Store"><img src="{{ asset('public/img') }}/apple.png" width="256" height="76" alt="Download on the App Store" /></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    
 </main>
 
 @endsection
@@ -5009,12 +5068,36 @@
     <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
     <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script> <!-- Recommended -->
     <script>
+        // if (window.innerWidth <= 550 && window.innerWidth >= 200) {
+            if (!(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile/i.test(navigator.userAgent))) {
         Shery.imageEffect(".backgrounds", {
             style: 3,
             debug: false,
             gooey: true,
             config: {"uFrequencyX":{"value":100,"range":[0,100]},"uFrequencyY":{"value":0,"range":[0,100]},"uFrequencyZ":{"value":0,"range":[0,100]},"geoVertex":{"range":[1,64],"value":32},"zindex":{"value":-9996999,"range":[-9999999,9999999]},"aspect":{"value":1.7517336630236409},"ignoreShapeAspect":{"value":true},"shapePosition":{"value":{"x":0,"y":0}},"shapeScale":{"value":{"x":1,"y":1}},"shapeEdgeSoftness":{"value":0,"range":[0,0.5]},"shapeRadius":{"value":0,"range":[0,2]},"currentScroll":{"value":0},"scrollLerp":{"value":0.07},"gooey":{"value":true},"infiniteGooey":{"value":true},"growSize":{"value":4,"range":[1,15]},"durationOut":{"value":1,"range":[0.1,5]},"durationIn":{"value":1.5,"range":[0.1,5]},"displaceAmount":{"value":0.5},"masker":{"value":false},"maskVal":{"value":1,"range":[1,5]},"scrollType":{"value":0},"noEffectGooey":{"value":true},"onMouse":{"value":0},"noise_speed":{"value":0.2,"range":[0,10]},"metaball":{"value":0.2,"range":[0,2],"_gsap":{"id":3}},"discard_threshold":{"value":0.5,"range":[0,1]},"antialias_threshold":{"value":0,"range":[0,0.1]},"noise_height":{"value":0.38,"range":[0,2]},"noise_scale":{"value":10.69,"range":[0,100]},"uTime":{"value":37.14299999999965}}
         });
-        
+    }
+    // }
     </script>
+
+<script>
+const cardsmamaElements = document.getElementsByClassName("cardsmama");
+
+for (const cardsmamaElement of cardsmamaElements) {
+    cardsmamaElement.onmousemove = e => {
+        for (const card of document.getElementsByClassName("cardy")) {
+            const rect = card.getBoundingClientRect(),
+                x = e.clientX - rect.left,
+                y = e.clientY - rect.top;
+
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+        }
+    };
+}
+
+
+</script>
+
+
 @endsection
